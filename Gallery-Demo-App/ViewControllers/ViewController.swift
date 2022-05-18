@@ -53,6 +53,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.setup(image: imageDetails[indexPath.row])
+        cell.contentView.backgroundColor = .red
        
         return cell
     }
@@ -65,16 +66,13 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         navigationController?.pushViewController(vc, animated: true)
     }
     
-   
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-          return UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-      }
+
       
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 150, height: 150)
-//          let lay = collectionViewLayout as! UICollectionViewFlowLayout
-//          let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
-//          return CGSize(width:widthPerItem, height: widthPerItem)
+//          return CGSize(width: 150, height: 150)
+          let lay = collectionViewLayout as! UICollectionViewFlowLayout
+          let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
+          return CGSize(width:widthPerItem, height: widthPerItem)
       }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerView", for: indexPath)
