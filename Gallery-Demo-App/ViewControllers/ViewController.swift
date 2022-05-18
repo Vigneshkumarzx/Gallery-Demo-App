@@ -123,7 +123,6 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
                 print(error)
             }
         }
-        
     }
     
 }

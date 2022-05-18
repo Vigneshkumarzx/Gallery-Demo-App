@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */; };
 		42D923F02833724F00F45AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923EF2833724F00F45AD4 /* AppDelegate.swift */; };
 		42D923F22833724F00F45AD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923F12833724F00F45AD4 /* SceneDelegate.swift */; };
 		42D923F42833724F00F45AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923F32833724F00F45AD4 /* ViewController.swift */; };
@@ -34,11 +35,13 @@
 		42D924432834F38800F45AD4 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924422834F38800F45AD4 /* DataBaseHelper.swift */; };
 		42D924482834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */; };
 		42D924492834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */; };
+		42D9244B283513FE00F45AD4 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */; };
 		F1990405B2C92D2DF54F5454 /* Pods_Gallery_Demo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6DCB1DD701E1898AA0B266 /* Pods_Gallery_Demo_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		410F7987FE20C88A02AEBE7E /* Pods-Gallery-Demo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.release.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.release.xcconfig"; sourceTree = "<group>"; };
+		4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineImageDetailViewController.swift; sourceTree = "<group>"; };
 		42D923EC2833724F00F45AD4 /* Gallery-Demo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery-Demo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D923EF2833724F00F45AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D923F12833724F00F45AD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		42D924422834F38800F45AD4 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 		42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		9B6DCB1DD701E1898AA0B266 /* Pods_Gallery_Demo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery_Demo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2AF97BE505CF7C6DC67F77E /* Pods-Gallery-Demo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.debug.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,8 @@
 				42D924342834B91C00F45AD4 /* ImageDetailViewController.swift */,
 				42D924382834BE6C00F45AD4 /* searchViewModel.swift */,
 				42D9243C2834D00400F45AD4 /* OfflineViewController.swift */,
+				42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */,
+				4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -329,11 +335,13 @@
 				42D924482834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift in Sources */,
 				42D9242C28341C1800F45AD4 /* SearchImageTableViewCell.swift in Sources */,
 				42D924402834F09300F45AD4 /* OfflineTableViewCell.swift in Sources */,
+				4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */,
 				42D92412283391F700F45AD4 /* ImageCollectionViewCell.swift in Sources */,
 				42D923F02833724F00F45AD4 /* AppDelegate.swift in Sources */,
 				42D924352834B91D00F45AD4 /* ImageDetailViewController.swift in Sources */,
 				42D924392834BE6C00F45AD4 /* searchViewModel.swift in Sources */,
 				42D92429283403F600F45AD4 /* SearchViewController.swift in Sources */,
+				42D9244B283513FE00F45AD4 /* SearchDetailViewController.swift in Sources */,
 				42D92415283395E100F45AD4 /* PhotosModel.swift in Sources */,
 				42D9243D2834D00500F45AD4 /* OfflineViewController.swift in Sources */,
 				42D924372834BC4500F45AD4 /* SearchModel.swift in Sources */,

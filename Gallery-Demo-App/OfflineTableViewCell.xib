@@ -17,21 +17,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-UR-vWz">
-                        <rect key="frame" x="8" y="8" width="250" height="171"/>
+                        <rect key="frame" x="8" y="8" width="199" height="171"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-up-nWd">
+                        <rect key="frame" x="215" y="145" width="43" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="xmark.bin.circle" catalog="system">
+                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="o7J-ef-BII"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="QQS-UR-vWz" secondAttribute="bottom" constant="8" id="KQe-7v-aaq"/>
-                    <constraint firstItem="QQS-UR-vWz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Pp4-st-iMV"/>
-                    <constraint firstAttribute="trailing" secondItem="QQS-UR-vWz" secondAttribute="trailing" constant="8" id="tR0-RD-52K"/>
-                    <constraint firstItem="QQS-UR-vWz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="v2n-aK-CiP"/>
+                    <constraint firstItem="QQS-UR-vWz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KCM-MZ-v3n"/>
+                    <constraint firstAttribute="trailing" secondItem="QQS-UR-vWz" secondAttribute="trailing" constant="59" id="MA9-8P-lBT"/>
+                    <constraint firstItem="I2p-up-nWd" firstAttribute="leading" secondItem="QQS-UR-vWz" secondAttribute="trailing" constant="8" symbolic="YES" id="Tsz-H1-kOo"/>
+                    <constraint firstAttribute="trailing" secondItem="I2p-up-nWd" secondAttribute="trailing" constant="8" id="bLw-EF-Fc4"/>
+                    <constraint firstItem="I2p-up-nWd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="145" id="cP2-ba-fpb"/>
+                    <constraint firstItem="QQS-UR-vWz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="t7a-1R-7Pv"/>
+                    <constraint firstAttribute="bottom" secondItem="QQS-UR-vWz" secondAttribute="bottom" constant="8" id="wTy-nM-Izs"/>
+                    <constraint firstAttribute="bottom" secondItem="I2p-up-nWd" secondAttribute="bottom" constant="11" id="yrh-6x-nMN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="imageView" destination="QQS-UR-vWz" id="hk8-IA-CDT"/>
+                <outlet property="offlineImageView" destination="QQS-UR-vWz" id="BBG-Ba-loT"/>
             </connections>
-            <point key="canvasLocation" x="168" y="71"/>
+            <point key="canvasLocation" x="166.66666666666669" y="70.647321428571431"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="xmark.bin.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
