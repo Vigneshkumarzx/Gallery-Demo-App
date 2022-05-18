@@ -21,18 +21,18 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBAction func downloadButtonTapped(_ sender: UIButton) {
         if let img = imageView.image {
-            img.toBase64()
             guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             let manageedContext = appdelegate.persistentContainer.viewContext
-            let entityName = ImageDetailEntity.entity()
-            
-            
-            
-            
+            let entityName = ImageDetailEntity(context: manageedContext)
+            entityName.img = img.pngData()
+            do{
+                try manageedContext.save()
+            }
+            catch {
+                print(error)
+            }
         }
         
-        
-       
         
     }
     
@@ -42,18 +42,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
         imageNameLabel.text = image.user?.username ?? ""
         imageDescriptionLabel.isHidden = true
 //        imageDescriptionLabel.text = image.imageDescription
-        let choosenImage = image.urls?.small
+        
     }
     
-    func createData(){
-        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let manageedContext = appdelegate.persistentContainer.viewContext
-        let userEntity = NSEntityDescription.entity(forEntityName: "Entity", in: manageedContext)!
-        for i in 1...5{
-            let user = NSManagedObject(entity: userEntity, insertInto: manageedContext)
-//            user.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
-        }
-    }
+
    
 }
 
