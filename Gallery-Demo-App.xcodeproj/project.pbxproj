@@ -117,7 +117,7 @@
 				42D9240A283372A200F45AD4 /* API */,
 				42D924082833726F00F45AD4 /* Delegate */,
 				42D924092833727700F45AD4 /* ViewControllers */,
-				42D923F52833724F00F45AD4 /* Main.storyboard */,
+				42EF2AE428360364004586C8 /* Storyboard  */,
 				42D923FB2833725300F45AD4 /* Assets.xcassets */,
 				42D923FD2833725300F45AD4 /* LaunchScreen.storyboard */,
 				42D924002833725300F45AD4 /* Info.plist */,
@@ -189,6 +189,14 @@
 				42D924362834BC4500F45AD4 /* SearchModel.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		42EF2AE428360364004586C8 /* Storyboard  */ = {
+			isa = PBXGroup;
+			children = (
+				42D923F52833724F00F45AD4 /* Main.storyboard */,
+			);
+			path = "Storyboard ";
 			sourceTree = "<group>";
 		};
 		CB957FD5B932BCD7E0E0A401 /* Pods */ = {

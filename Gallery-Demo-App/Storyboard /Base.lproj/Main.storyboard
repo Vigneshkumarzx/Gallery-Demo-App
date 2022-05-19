@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,7 +85,10 @@
                             <constraint firstItem="ZHp-9A-o1Z" firstAttribute="leading" secondItem="XC7-Kc-BfJ" secondAttribute="leading" id="rEX-R9-cZd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Offline" id="QMS-cM-2kh"/>
+                    <tabBarItem key="tabBarItem" title="Offline" id="QMS-cM-2kh">
+                        <imageReference key="image" image="network.badge.shield.half.filled" catalog="system" renderingMode="original"/>
+                        <imageReference key="landscapeImage" image="network.badge.shield.half.filled" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="C1K-Nt-xZe" id="Fwt-A1-ebs"/>
                     </connections>
@@ -201,7 +205,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZw-qb-rNg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-cM-pC8">
+                                    <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-cM-pC8">
                                         <rect key="frame" x="0.0" y="66" width="414" height="659"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
@@ -324,6 +328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="FKA-4P-eAP" kind="relationship" relationship="viewControllers" id="ufZ-To-Ncf"/>
@@ -339,7 +344,10 @@
         <scene sceneID="0DE-Ls-pjf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FKA-4P-eAP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="5xa-Sf-01h"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="5xa-Sf-01h">
+                        <imageReference key="image" image="homekit" catalog="system" renderingMode="original"/>
+                        <imageReference key="landscapeImage" image="homekit" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gFQ-xF-00v">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -358,7 +366,10 @@
         <scene sceneID="DwN-lr-JDm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v3t-Qw-xNl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="AKe-Rl-Xdo"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="AKe-Rl-Xdo">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" renderingMode="original"/>
+                        <imageReference key="landscapeImage" image="magnifyingglass" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJV-J3-4nT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -375,8 +386,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="network.badge.shield.half.filled" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

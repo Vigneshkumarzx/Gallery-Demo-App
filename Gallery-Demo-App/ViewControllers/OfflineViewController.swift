@@ -32,12 +32,6 @@ class OfflineViewController: UIViewController {
             print("Error fetching data from context\(error)")
         }
     }
-    
-    @IBAction func showImageButtonTapped(_ sender: Any) {
-     
-        
-    }
- 
 }
 
 extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
@@ -52,8 +46,8 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OfflineTableViewCell") as! OfflineTableViewCell
+        self.tableView.reloadData()
         cell.setup(details: offlineImages[indexPath.row])
-        
        return cell
     }
     

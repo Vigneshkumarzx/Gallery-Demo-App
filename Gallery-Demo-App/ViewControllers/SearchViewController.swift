@@ -46,6 +46,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchImageTableViewCell", for: indexPath) as! SearchImageTableViewCell
         cell.setup(search: imageDetails[indexPath.item])
+        cell.contentView.sizeToFit()
         return cell
     }
     
@@ -58,11 +59,11 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
    
     
     func searchImages(quary: String = "water"){
-//        SVProgressHUD.show()
+        SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ result in
+            SVProgressHUD.dismiss()
             switch result {
             case .success(let value):
-//                SVProgressHUD.dismiss()
                 self.imageDetails.removeAll()
                 self.imageDetails = value
                 print(value)

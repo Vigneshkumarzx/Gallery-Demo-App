@@ -20,7 +20,6 @@ class OfflineTableViewCell: UITableViewCell {
             offlineImageView.image = UIImage(data: data)
         }
         deleteImages = details
-        
     }
    
     @IBAction func deleteButtonTapped(_ sender: Any) {
@@ -33,6 +32,5 @@ class OfflineTableViewCell: UITableViewCell {
         catch {
             print(error)
         }
-    }
-    
+    }    
 }
