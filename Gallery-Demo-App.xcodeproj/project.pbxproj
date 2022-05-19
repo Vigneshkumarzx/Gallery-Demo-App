@@ -72,6 +72,7 @@
 		42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		42EF2AE628362483004586C8 /* Gallery-Demo-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gallery-Demo-App.entitlements"; sourceTree = "<group>"; };
 		9B6DCB1DD701E1898AA0B266 /* Pods_Gallery_Demo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery_Demo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2AF97BE505CF7C6DC67F77E /* Pods-Gallery-Demo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.debug.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +110,7 @@
 		42D923EE2833724F00F45AD4 /* Gallery-Demo-App */ = {
 			isa = PBXGroup;
 			children = (
+				42EF2AE628362483004586C8 /* Gallery-Demo-App.entitlements */,
 				42D9241A2833C79600F45AD4 /* Extension */,
 				42D9241D2833C80300F45AD4 /* DataModel */,
 				42D9240A283372A200F45AD4 /* API */,
@@ -510,8 +512,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Gallery-Demo-App/Gallery-Demo-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87NW43K2L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Gallery-Demo-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -538,8 +542,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Gallery-Demo-App/Gallery-Demo-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87NW43K2L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Gallery-Demo-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

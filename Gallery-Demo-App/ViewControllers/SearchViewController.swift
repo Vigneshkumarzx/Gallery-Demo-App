@@ -10,8 +10,6 @@ import SVProgressHUD
 
 
 class SearchViewController: UIViewController {
-    
-    
     var imageDetails: [Results] = []
     var viewModel = SearchViewModel()
     var SearchedViewControllers: [UIViewController] = []
@@ -21,16 +19,15 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SearchImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchImageTableViewCell")
         searchImages()
         searchBar.delegate = self
-        
-    }
-    
+        self.hideKeyboardWhenTappedAround()
 
+       
+    }
 }
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
@@ -54,10 +51,11 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
         vc.searchDetail = imageDetails[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
    
-    func searchImages(quary: String = "water"){
+    func searchImages(quary: String = "cars"){
         SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ result in
             SVProgressHUD.dismiss()
@@ -81,12 +79,29 @@ extension SearchViewController: UITextFieldDelegate {
         self.perform(#selector(callApi), with: nil, afterDelay: 0.5)
         return true
     }
-  
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
     @objc func callApi() {
         guard let searchText = searchBar.text else { return }
         searchImages(quary: searchText)
     }
-    
-    
-    
 }
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
+

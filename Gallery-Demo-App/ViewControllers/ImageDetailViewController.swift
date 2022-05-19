@@ -21,6 +21,7 @@ class ImageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         populateView()
+        
     }
     private func populateView(){
         imageView.kf.setImage(with: details.urls?.small?.asUrl)

@@ -15,11 +15,9 @@ class OfflineImageDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     private func popUpview(){
-        
         if let data = offlineDetails.img {
             offlineDetailImageView.image = UIImage(data: data)
         }

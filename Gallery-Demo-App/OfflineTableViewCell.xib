@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,9 +26,6 @@
                         <buttonConfiguration key="configuration" style="plain" image="xmark.bin.circle" catalog="system">
                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                         </buttonConfiguration>
-                        <connections>
-                            <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="o7J-ef-BII"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -43,6 +41,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deleteButton" destination="I2p-up-nWd" id="CQR-as-aeD"/>
                 <outlet property="offlineImageView" destination="QQS-UR-vWz" id="BBG-Ba-loT"/>
             </connections>
             <point key="canvasLocation" x="166.66666666666669" y="70.647321428571431"/>
