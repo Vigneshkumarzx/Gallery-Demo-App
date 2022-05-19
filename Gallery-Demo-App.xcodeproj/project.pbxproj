@@ -109,15 +109,14 @@
 		42D923EE2833724F00F45AD4 /* Gallery-Demo-App */ = {
 			isa = PBXGroup;
 			children = (
-				42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */,
-				42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */,
 				42D9241A2833C79600F45AD4 /* Extension */,
 				42D9241D2833C80300F45AD4 /* DataModel */,
-				42D9240F283391D900F45AD4 /* Nib */,
 				42D9240A283372A200F45AD4 /* API */,
 				42D924082833726F00F45AD4 /* Delegate */,
 				42D924092833727700F45AD4 /* ViewControllers */,
+				42EF2AE528360F6E004586C8 /* CoreDataModel */,
 				42EF2AE428360364004586C8 /* Storyboard  */,
+				42D9240F283391D900F45AD4 /* Nib */,
 				42D923FB2833725300F45AD4 /* Assets.xcassets */,
 				42D923FD2833725300F45AD4 /* LaunchScreen.storyboard */,
 				42D924002833725300F45AD4 /* Info.plist */,
@@ -197,6 +196,15 @@
 				42D923F52833724F00F45AD4 /* Main.storyboard */,
 			);
 			path = "Storyboard ";
+			sourceTree = "<group>";
+		};
+		42EF2AE528360F6E004586C8 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */,
+				42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		CB957FD5B932BCD7E0E0A401 /* Pods */ = {

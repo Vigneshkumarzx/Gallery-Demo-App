@@ -24,5 +24,4 @@ class SearchDetailViewController: UIViewController {
         detailsImageView.kf.setImage(with: searchDetail.urls?.small?.asUrl)
         imageDeslabel.text = searchDetail.id
     }
-    
 }

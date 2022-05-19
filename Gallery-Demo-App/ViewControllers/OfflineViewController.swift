@@ -22,7 +22,6 @@ class OfflineViewController: UIViewController {
         tableView.register(UINib(nibName: "OfflineTableViewCell", bundle: nil), forCellReuseIdentifier: "OfflineTableViewCell")
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
-//        let  offlineImages = ImageDetailEntity.fetchRequest()  as! NSFetchRequest<ImageDetailEntity>
         let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
         
         do {
@@ -56,5 +55,4 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
       let vc = storyboard.instantiateViewController(withIdentifier: "OfflineImageDetailViewController") as! OfflineImageDetailViewController
         vc.offlineDetails = offlineImages[indexPath.row]
     }
-    
 }

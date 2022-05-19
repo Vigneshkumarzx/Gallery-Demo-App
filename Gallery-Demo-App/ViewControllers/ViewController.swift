@@ -22,25 +22,13 @@ class HomeScreenViewController: UIViewController {
         collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         getImages()
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        let itemSize = (UIScreen.main.bounds.width/2) - 3
-
-         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-         layout.itemSize = CGSize(width: itemSize, height: itemSize)
-
-         layout.minimumInteritemSpacing = 3
-         layout.minimumLineSpacing = 3
-
-         collectionView.collectionViewLayout = layout
         
     }
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(signOf: 50.0 , magnitudeOf: 50.0)
@@ -54,26 +42,22 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.setup(image: imageDetails[indexPath.row])
         cell.contentView.backgroundColor = .red
-       
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
-//        let controller = ImageDetailViewController.instantiate()
         vc.details = imageDetails[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-
-      
+   
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//          return CGSize(width: 150, height: 150)
           let lay = collectionViewLayout as! UICollectionViewFlowLayout
           let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
           return CGSize(width:widthPerItem, height: widthPerItem)
       }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerView", for: indexPath)
        return footerView
@@ -95,7 +79,6 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
                 switch result {
                 case .success(let value):
                     self.imageDetails.append(contentsOf: value)
-//                    print(value)
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
@@ -107,14 +90,13 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     }
     
     func getImages(){
-//        SVProgressHUD.show()
+        SVProgressHUD.show()
         self.viewModel.getImage { result in
-            
+            SVProgressHUD.dismiss()
             switch result {
             case .success(let value):
                 self.imageDetails.removeAll()
                 self.imageDetails = value
-//                SVProgressHUD.dismiss()
                 print(self.imageDetails)
                 self.collectionView.reloadData()
             case .failure(let error):

@@ -29,7 +29,6 @@ class ImageViewModel {
         
     }
     
-    
     func getImageMore(completion: @escaping (Result<photoModelArray, Error>) -> Void) {
         
         ImageService.getImageMore { [weak self] (result) in

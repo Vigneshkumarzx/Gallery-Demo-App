@@ -22,7 +22,6 @@ class ImageDetailViewController: UIViewController {
         super.viewDidLoad()
         populateView()
     }
-    
     private func populateView(){
         imageView.kf.setImage(with: details.urls?.small?.asUrl)
         imageName.text = details.user?.name

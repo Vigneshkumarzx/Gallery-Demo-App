@@ -57,7 +57,6 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
    
-    
     func searchImages(quary: String = "water"){
         SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ result in
@@ -85,7 +84,6 @@ extension SearchViewController: UITextFieldDelegate {
   
     @objc func callApi() {
         guard let searchText = searchBar.text else { return }
-//        guard let searcVc = SearchedViewControllers[0] as? SearchViewController else { return }
         searchImages(quary: searchText)
     }
     

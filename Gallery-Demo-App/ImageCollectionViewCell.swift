@@ -22,6 +22,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBAction func downloadButtonTapped(_ sender: UIButton) {
         if let img = imageView.image {
+            downLoadButton.adjustsImageWhenHighlighted = false
             guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             let manageedContext = appdelegate.persistentContainer.viewContext
             let entityName = ImageDetailEntity(context: manageedContext)
