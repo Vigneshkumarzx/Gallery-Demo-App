@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */; };
+		4268F0AA2837918B00921610 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268F0A92837918A00921610 /* Extension+UIView.swift */; };
+		4268F0AC283794B000921610 /* Extension+Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268F0AB283794B000921610 /* Extension+Textfield.swift */; };
 		42D923F02833724F00F45AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923EF2833724F00F45AD4 /* AppDelegate.swift */; };
 		42D923F22833724F00F45AD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923F12833724F00F45AD4 /* SceneDelegate.swift */; };
 		42D923F42833724F00F45AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D923F32833724F00F45AD4 /* ViewController.swift */; };
@@ -18,7 +20,7 @@
 		42D92412283391F700F45AD4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D92410283391F700F45AD4 /* ImageCollectionViewCell.swift */; };
 		42D92413283391F700F45AD4 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D92411283391F700F45AD4 /* ImageCollectionViewCell.xib */; };
 		42D92415283395E100F45AD4 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D92414283395E100F45AD4 /* PhotosModel.swift */; };
-		42D9241C2833C7C400F45AD4 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9241B2833C7C400F45AD4 /* Extension + String.swift */; };
+		42D9241C2833C7C400F45AD4 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9241B2833C7C400F45AD4 /* Extension+String.swift */; };
 		42D924232833F52F00F45AD4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924222833F52F00F45AD4 /* NetworkManager.swift */; };
 		42D924252833F7A900F45AD4 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924242833F7A900F45AD4 /* ImageService.swift */; };
 		42D924272833FAD200F45AD4 /* imageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924262833FAD200F45AD4 /* imageViewModel.swift */; };
@@ -28,11 +30,10 @@
 		42D924352834B91D00F45AD4 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924342834B91C00F45AD4 /* ImageDetailViewController.swift */; };
 		42D924372834BC4500F45AD4 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924362834BC4500F45AD4 /* SearchModel.swift */; };
 		42D924392834BE6C00F45AD4 /* searchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924382834BE6C00F45AD4 /* searchViewModel.swift */; };
-		42D9243B2834C2E700F45AD4 /* Extension + VIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9243A2834C2E700F45AD4 /* Extension + VIewController.swift */; };
+		42D9243B2834C2E700F45AD4 /* Extension+VIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9243A2834C2E700F45AD4 /* Extension+VIewController.swift */; };
 		42D9243D2834D00500F45AD4 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9243C2834D00400F45AD4 /* OfflineViewController.swift */; };
 		42D924402834F09300F45AD4 /* OfflineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9243E2834F09300F45AD4 /* OfflineTableViewCell.swift */; };
 		42D924412834F09300F45AD4 /* OfflineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D9243F2834F09300F45AD4 /* OfflineTableViewCell.xib */; };
-		42D924432834F38800F45AD4 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924422834F38800F45AD4 /* DataBaseHelper.swift */; };
 		42D924482834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */; };
 		42D924492834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */; };
 		42D9244B283513FE00F45AD4 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		410F7987FE20C88A02AEBE7E /* Pods-Gallery-Demo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.release.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.release.xcconfig"; sourceTree = "<group>"; };
 		4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineImageDetailViewController.swift; sourceTree = "<group>"; };
+		4268F0A92837918A00921610 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		4268F0AB283794B000921610 /* Extension+Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Textfield.swift"; sourceTree = "<group>"; };
 		42D923EC2833724F00F45AD4 /* Gallery-Demo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery-Demo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D923EF2833724F00F45AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D923F12833724F00F45AD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +57,7 @@
 		42D92410283391F700F45AD4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		42D92411283391F700F45AD4 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		42D92414283395E100F45AD4 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
-		42D9241B2833C7C400F45AD4 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
+		42D9241B2833C7C400F45AD4 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		42D924222833F52F00F45AD4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		42D924242833F7A900F45AD4 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		42D924262833FAD200F45AD4 /* imageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewModel.swift; sourceTree = "<group>"; };
@@ -64,11 +67,10 @@
 		42D924342834B91C00F45AD4 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		42D924362834BC4500F45AD4 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		42D924382834BE6C00F45AD4 /* searchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewModel.swift; sourceTree = "<group>"; };
-		42D9243A2834C2E700F45AD4 /* Extension + VIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + VIewController.swift"; sourceTree = "<group>"; };
+		42D9243A2834C2E700F45AD4 /* Extension+VIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+VIewController.swift"; sourceTree = "<group>"; };
 		42D9243C2834D00400F45AD4 /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		42D9243E2834F09300F45AD4 /* OfflineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTableViewCell.swift; sourceTree = "<group>"; };
 		42D9243F2834F09300F45AD4 /* OfflineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflineTableViewCell.xib; sourceTree = "<group>"; };
-		42D924422834F38800F45AD4 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 		42D924462834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42D924472834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageDetailEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
@@ -184,9 +186,10 @@
 		42D9241A2833C79600F45AD4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				42D9241B2833C7C400F45AD4 /* Extension + String.swift */,
-				42D9243A2834C2E700F45AD4 /* Extension + VIewController.swift */,
-				42D924422834F38800F45AD4 /* DataBaseHelper.swift */,
+				42D9241B2833C7C400F45AD4 /* Extension+String.swift */,
+				42D9243A2834C2E700F45AD4 /* Extension+VIewController.swift */,
+				4268F0A92837918A00921610 /* Extension+UIView.swift */,
+				4268F0AB283794B000921610 /* Extension+Textfield.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -356,12 +359,13 @@
 				42D924272833FAD200F45AD4 /* imageViewModel.swift in Sources */,
 				42D923F42833724F00F45AD4 /* ViewController.swift in Sources */,
 				42D923FA2833724F00F45AD4 /* Gallery_Demo_App.xcdatamodeld in Sources */,
-				42D9243B2834C2E700F45AD4 /* Extension + VIewController.swift in Sources */,
-				42D9241C2833C7C400F45AD4 /* Extension + String.swift in Sources */,
+				42D9243B2834C2E700F45AD4 /* Extension+VIewController.swift in Sources */,
+				42D9241C2833C7C400F45AD4 /* Extension+String.swift in Sources */,
 				42D924482834FF8300F45AD4 /* ImageDetailEntity+CoreDataClass.swift in Sources */,
 				42D9242C28341C1800F45AD4 /* SearchImageTableViewCell.swift in Sources */,
 				42D924402834F09300F45AD4 /* OfflineTableViewCell.swift in Sources */,
 				4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */,
+				4268F0AA2837918B00921610 /* Extension+UIView.swift in Sources */,
 				42D92412283391F700F45AD4 /* ImageCollectionViewCell.swift in Sources */,
 				42D923F02833724F00F45AD4 /* AppDelegate.swift in Sources */,
 				42D924352834B91D00F45AD4 /* ImageDetailViewController.swift in Sources */,
@@ -371,8 +375,8 @@
 				42D92415283395E100F45AD4 /* PhotosModel.swift in Sources */,
 				42D9243D2834D00500F45AD4 /* OfflineViewController.swift in Sources */,
 				42D924372834BC4500F45AD4 /* SearchModel.swift in Sources */,
-				42D924432834F38800F45AD4 /* DataBaseHelper.swift in Sources */,
 				42D924492834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift in Sources */,
+				4268F0AC283794B000921610 /* Extension+Textfield.swift in Sources */,
 				42D924252833F7A900F45AD4 /* ImageService.swift in Sources */,
 				42D923F22833724F00F45AD4 /* SceneDelegate.swift in Sources */,
 			);

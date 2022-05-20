@@ -6,7 +6,6 @@ target 'Gallery-Demo-App' do
   use_frameworks!
 
   # Pods for Gallery-Demo-App
-pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'Kingfisher'
 pod 'SVProgressHUD'

@@ -11,11 +11,12 @@ import SVProgressHUD
 import CoreData
 
 class HomeScreenViewController: UIViewController {
+  
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var imageDetails: photoModelArray = []
     var viewModel = ImageViewModel()
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,9 +13,8 @@ class ImageDetailViewController: UIViewController {
     var details: PhotosModel!
 
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var userIdLabel: UILabel!
     @IBOutlet weak var imageName: UILabel!
-    
     @IBOutlet weak var imageDescription: UILabel!
     
     override func viewDidLoad() {
@@ -27,6 +26,7 @@ class ImageDetailViewController: UIViewController {
         imageView.kf.setImage(with: details.urls?.small?.asUrl)
         imageName.text = details.user?.name
         imageDescription.text = details.user?.bio
+        userIdLabel.text = details.user?.id
     }
     
 }

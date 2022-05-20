@@ -10,11 +10,14 @@ import Kingfisher
 
 class SearchDetailViewController: UIViewController {
     
+   
+    
+    @IBOutlet weak var imageBioLabel: UILabel!
+    @IBOutlet weak var imageNameLabel: UILabel!
+    @IBOutlet weak var detailsImageView: UIImageView!
+    @IBOutlet weak var imageDeslabel: UILabel!
     var searchDetail: Results!
     
-    @IBOutlet weak var detailsImageView: UIImageView!
-    
-    @IBOutlet weak var imageDeslabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         popUpView()
@@ -22,6 +25,6 @@ class SearchDetailViewController: UIViewController {
     
     func popUpView(){
         detailsImageView.kf.setImage(with: searchDetail.urls?.small?.asUrl)
-        imageDeslabel.text = searchDetail.id
+        imageDeslabel.text = searchDetail.user?.username
     }
 }

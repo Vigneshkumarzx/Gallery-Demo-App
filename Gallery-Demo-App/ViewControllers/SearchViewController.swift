@@ -26,15 +26,17 @@ class SearchViewController: UIViewController {
         searchImages()
         searchBar.delegate = self
         self.hideKeyboardWhenTappedAround()
-
+        searchBar.tintColor = UIColor.lightGray
+        searchBar.setIcon(UIImage(named: "magnifyingglass")!)
        
     }
+    
 }
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
+        250
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
