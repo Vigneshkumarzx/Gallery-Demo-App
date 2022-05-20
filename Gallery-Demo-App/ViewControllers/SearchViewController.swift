@@ -10,12 +10,13 @@ import SVProgressHUD
 
 
 class SearchViewController: UIViewController {
-    var imageDetails: [Results] = []
-    var viewModel = SearchViewModel()
-    var SearchedViewControllers: [UIViewController] = []
+  
 
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
+    var viewModel = SearchViewModel()
+    var SearchedViewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,12 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imageDetails.count
+        return viewModel.searchArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchImageTableViewCell", for: indexPath) as! SearchImageTableViewCell
-        cell.setup(search: imageDetails[indexPath.item])
+        cell.setup(search: viewModel.searchArray[indexPath.item])
         cell.contentView.sizeToFit()
         return cell
     }
@@ -50,24 +51,19 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
-        vc.searchDetail = imageDetails[indexPath.row]
+        vc.searchDetail = viewModel.searchArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
    
     func searchImages(quary: String = "cars"){
         SVProgressHUD.show()
-        self.viewModel.searchImage(quary: quary){ result in
+        self.viewModel.searchImage(quary: quary){ error in
             SVProgressHUD.dismiss()
-            switch result {
-            case .success(let value):
-                self.imageDetails.removeAll()
-                self.imageDetails = value
-                print(value)
-                print(self.imageDetails)
-                self.tableView.reloadData()
-            case .failure(let error):
+            if let error = error {
                 print(error)
+            } else {
+                self.tableView.reloadData()
             }
         }
     }

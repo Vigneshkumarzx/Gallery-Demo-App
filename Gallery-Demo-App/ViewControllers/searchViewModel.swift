@@ -11,7 +11,7 @@ class SearchViewModel{
     
     var searchArray: [Results] = []
     
-    func searchImage(quary: String, completion: @escaping (Result<[Results], Error>) -> Void) {
+    func searchImage(quary: String, completion: @escaping (Error?) -> Void) {
         
         ImageService.searchImage(quary: quary){ [weak self] (result) in
             switch result {
@@ -19,9 +19,9 @@ class SearchViewModel{
                 guard let self = self else {return}
                 self.searchArray.removeAll()
                 self.searchArray = model.results
-                completion(.success(self.searchArray))
+                completion(nil)
             case .failure(let error) :
-                completion(.failure(error))
+                completion(error)
             }
         }
     }
