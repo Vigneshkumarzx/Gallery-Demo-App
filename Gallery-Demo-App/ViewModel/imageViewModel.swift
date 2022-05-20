@@ -28,9 +28,9 @@ class ImageViewModel {
         
     }
     
-    func getImageMore(completion: @escaping (Result<photoModelArray, Error>) -> Void) {
+    func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
         
-        ImageService.getImageMore { [weak self] (result) in
+        ImageService.getImageMore(pages: pages ) { [weak self] (result) in
             switch result {
             case .success(let model) :
                 guard let self = self else {return}

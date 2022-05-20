@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42254BDE2837F62900D40CC8 /* LoaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42254BDC2837F62900D40CC8 /* LoaderCollectionViewCell.swift */; };
+		42254BDF2837F62900D40CC8 /* LoaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42254BDD2837F62900D40CC8 /* LoaderCollectionViewCell.xib */; };
 		4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */; };
 		4268F0AA2837918B00921610 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268F0A92837918A00921610 /* Extension+UIView.swift */; };
 		4268F0AC283794B000921610 /* Extension+Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268F0AB283794B000921610 /* Extension+Textfield.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		410F7987FE20C88A02AEBE7E /* Pods-Gallery-Demo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.release.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.release.xcconfig"; sourceTree = "<group>"; };
+		42254BDC2837F62900D40CC8 /* LoaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		42254BDD2837F62900D40CC8 /* LoaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineImageDetailViewController.swift; sourceTree = "<group>"; };
 		4268F0A92837918A00921610 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		4268F0AB283794B000921610 /* Extension+Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Textfield.swift"; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				42D9242B28341C1800F45AD4 /* SearchImageTableViewCell.xib */,
 				42D9243E2834F09300F45AD4 /* OfflineTableViewCell.swift */,
 				42D9243F2834F09300F45AD4 /* OfflineTableViewCell.xib */,
+				42254BDC2837F62900D40CC8 /* LoaderCollectionViewCell.swift */,
+				42254BDD2837F62900D40CC8 /* LoaderCollectionViewCell.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				42D923FF2833725300F45AD4 /* LaunchScreen.storyboard in Resources */,
 				42D924412834F09300F45AD4 /* OfflineTableViewCell.xib in Resources */,
 				42D923FC2833725300F45AD4 /* Assets.xcassets in Resources */,
+				42254BDF2837F62900D40CC8 /* LoaderCollectionViewCell.xib in Resources */,
 				42D92413283391F700F45AD4 /* ImageCollectionViewCell.xib in Resources */,
 				42D923F72833724F00F45AD4 /* Main.storyboard in Resources */,
 				42D9242D28341C1800F45AD4 /* SearchImageTableViewCell.xib in Resources */,
@@ -373,6 +380,7 @@
 				42D92429283403F600F45AD4 /* SearchViewController.swift in Sources */,
 				42D9244B283513FE00F45AD4 /* SearchDetailViewController.swift in Sources */,
 				42D92415283395E100F45AD4 /* PhotosModel.swift in Sources */,
+				42254BDE2837F62900D40CC8 /* LoaderCollectionViewCell.swift in Sources */,
 				42D9243D2834D00500F45AD4 /* OfflineViewController.swift in Sources */,
 				42D924372834BC4500F45AD4 /* SearchModel.swift in Sources */,
 				42D924492834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift in Sources */,

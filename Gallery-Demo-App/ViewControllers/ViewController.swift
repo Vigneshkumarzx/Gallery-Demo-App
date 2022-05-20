@@ -17,15 +17,21 @@ class HomeScreenViewController: UIViewController {
     
     var imageDetails: photoModelArray = []
     var viewModel = ImageViewModel()
+    var pages = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         getImages()
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        registerCell()
         
+    }
+    func registerCell(){
+        collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        collectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
     }
 }
 
@@ -39,11 +45,17 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         return imageDetails.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {if indexPath.row == imageDetails.count - 1 {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
+        cell.loaderActivity.startAnimating()
+        return cell
+        
+    } else {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.setup(image: imageDetails[indexPath.row])
         cell.contentView.backgroundColor = .red
         return cell
+    }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -76,9 +88,10 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pages += 1
         let position = scrollView.contentOffset.y
         if position > (collectionView.contentSize.height-100-scrollView.frame.size.height){
-            self.viewModel.getImageMore { result in
+            self.viewModel.getImageMore(pages: String(pages)) { result in
                 switch result {
                 case .success(let value):
                     self.imageDetails.append(contentsOf: value)
