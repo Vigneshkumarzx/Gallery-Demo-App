@@ -89,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4268F0A828377F8E00921610 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42D924382834BE6C00F45AD4 /* searchViewModel.swift */,
+				42D924262833FAD200F45AD4 /* imageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		42D923E32833724F00F45AD4 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +125,7 @@
 				42D9240A283372A200F45AD4 /* API */,
 				42D924082833726F00F45AD4 /* Delegate */,
 				42D924092833727700F45AD4 /* ViewControllers */,
+				4268F0A828377F8E00921610 /* ViewModel */,
 				42EF2AE528360F6E004586C8 /* CoreDataModel */,
 				42EF2AE428360364004586C8 /* Storyboard  */,
 				42D9240F283391D900F45AD4 /* Nib */,
@@ -140,10 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				42D923F32833724F00F45AD4 /* ViewController.swift */,
-				42D924262833FAD200F45AD4 /* imageViewModel.swift */,
 				42D92428283403F600F45AD4 /* SearchViewController.swift */,
 				42D924342834B91C00F45AD4 /* ImageDetailViewController.swift */,
-				42D924382834BE6C00F45AD4 /* searchViewModel.swift */,
 				42D9243C2834D00400F45AD4 /* OfflineViewController.swift */,
 				42D9244A283513FE00F45AD4 /* SearchDetailViewController.swift */,
 				4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */,
