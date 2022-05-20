@@ -93,16 +93,13 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     
     func getImages(){
         SVProgressHUD.show()
-        self.viewModel.getImage { result in
+        viewModel.getImage { error in
             SVProgressHUD.dismiss()
-            switch result {
-            case .success(let value):
-                self.imageDetails.removeAll()
-                self.imageDetails = value
-                print(self.imageDetails)
-                self.collectionView.reloadData()
-            case .failure(let error):
+            if let error = error {
                 print(error)
+            }
+            else {
+                self.collectionView.reloadData()
             }
         }
     }
