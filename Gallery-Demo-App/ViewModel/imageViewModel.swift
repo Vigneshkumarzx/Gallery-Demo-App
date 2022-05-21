@@ -28,17 +28,16 @@ class ImageViewModel {
         
     }
     
-    func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
+    func getImageMore(pages: String, completion: @escaping (Error?) -> Void) {
         
         ImageService.getImageMore(pages: pages ) { [weak self] (result) in
             switch result {
             case .success(let model) :
                 guard let self = self else {return}
-                self.photosArray.removeAll()
-                self.photosArray = model
-                completion(.success(self.photosArray))
+                self.photosArray.append(contentsOf: model)
+                completion(nil)
             case.failure(let error) :
-                completion(.failure(error))
+                completion(error)
             }
             
         }

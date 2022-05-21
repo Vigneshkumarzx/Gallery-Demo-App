@@ -31,7 +31,7 @@ struct NetworkManager {
         let accessToken = "Client-ID 038865ae4edb7c4e2aeb2af607e890526108163ad9a40a13da98ca1185404d03"
         urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
 
-        NetworkManager.sharedManager.request(urlRequest).responseJSON { (response) in
+        NetworkManager.sharedManager.request(urlRequest).responseData { (response) in
 
             if let statusCode = response.response?.statusCode {
                 switch statusCode {
@@ -100,7 +100,6 @@ struct NetworkManager {
                 switch statusCode {
                 case APIStatusCode.success.rawValue:
                     success(response.data, statusCode)
-
                 default:
                     failed(response.error, statusCode)
                 }

@@ -15,7 +15,7 @@ class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var imageDetails: photoModelArray = []
+   
     var viewModel = ImageViewModel()
     var pages = 1
     
@@ -42,17 +42,17 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageDetails.count
+        return viewModel.photosArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {if indexPath.row == imageDetails.count - 1 {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {if indexPath.row == viewModel.photosArray.count - 1 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
         cell.loaderActivity.startAnimating()
         return cell
         
     } else {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.setup(image: imageDetails[indexPath.row])
+        cell.setup(image: viewModel.photosArray[indexPath.row])
         cell.contentView.backgroundColor = .red
         return cell
     }
@@ -61,7 +61,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
-        vc.details = imageDetails[indexPath.row]
+        vc.details = viewModel.photosArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
        
@@ -91,15 +91,14 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         pages += 1
         let position = scrollView.contentOffset.y
         if position > (collectionView.contentSize.height-100-scrollView.frame.size.height){
-            self.viewModel.getImageMore(pages: String(pages)) { result in
-                switch result {
-                case .success(let value):
-                    self.imageDetails.append(contentsOf: value)
+            self.viewModel.getImageMore(pages: String(pages)) { error in
+                if let error = error {
+                    print(error)
+                }else {
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-                case .failure(let error):
-                    print(error)
+                    
                 }
             }
         }
@@ -113,7 +112,9 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
                 print(error)
             }
             else {
-                self.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }

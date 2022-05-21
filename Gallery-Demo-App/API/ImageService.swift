@@ -31,9 +31,7 @@ class ImageService {
     }
     
     static func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
-//        DispatchQueue.global().asyncAfter(deadline: .now()) {
-//            <#code#>
-//        }
+
         let url = "https://api.unsplash.com/photos?page=\(pages)"
 
         NetworkManager.get(url, token: "") { (response, _) in
