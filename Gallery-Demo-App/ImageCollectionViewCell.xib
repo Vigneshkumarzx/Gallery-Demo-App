@@ -44,8 +44,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VNu-OQ-rog" secondAttribute="trailing" id="6hZ-jJ-gQO"/>
+                                    <constraint firstItem="cdu-mG-Clx" firstAttribute="top" secondItem="hGI-SU-F2Y" secondAttribute="top" id="IYu-iG-1J2"/>
+                                    <constraint firstItem="VNu-OQ-rog" firstAttribute="leading" secondItem="hGI-SU-F2Y" secondAttribute="leading" id="Ki0-l4-kMC"/>
+                                    <constraint firstAttribute="trailing" secondItem="cdu-mG-Clx" secondAttribute="trailing" id="Qbf-p7-q2b"/>
+                                    <constraint firstItem="VNu-OQ-rog" firstAttribute="top" secondItem="cdu-mG-Clx" secondAttribute="bottom" id="cim-U0-jUI"/>
+                                    <constraint firstItem="cdu-mG-Clx" firstAttribute="leading" secondItem="hGI-SU-F2Y" secondAttribute="leading" id="fwf-xc-cPV"/>
+                                    <constraint firstItem="VNu-OQ-rog" firstAttribute="top" secondItem="cdu-mG-Clx" secondAttribute="bottom" id="jdz-PH-Cck"/>
+                                    <constraint firstAttribute="bottom" secondItem="VNu-OQ-rog" secondAttribute="bottom" id="rAN-xz-IEV"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXo-Xn-EAF">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXo-Xn-EAF">
                                 <rect key="frame" x="97" y="73" width="45" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="RoK-wl-GG2"/>

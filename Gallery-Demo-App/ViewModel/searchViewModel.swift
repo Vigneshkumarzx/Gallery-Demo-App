@@ -13,7 +13,7 @@ class SearchViewModel{
     
     func searchImage(quary: String, completion: @escaping (Error?) -> Void) {
         
-        ImageService.searchImage(quary: quary){ [weak self] (result) in
+        ImageService.shared.searchImage(quary: quary){ [weak self] (result) in
             switch result {
             case .success(let model) :
                 guard let self = self else {return}

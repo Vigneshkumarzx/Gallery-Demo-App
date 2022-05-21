@@ -34,9 +34,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
             catch {
                 print(error)
             }
+            NotificationCenter.default.post(name: NSNotification.Name("imageSaved"), object: nil)
         }
-        
-        
     }
     
     func setup(image: PhotosModel?){

@@ -9,7 +9,9 @@ import Foundation
 
 class ImageService {
     
-    static func getImage(completion: @escaping (Result<photoModelArray, Error>) -> Void) {
+   static let shared = ImageService()
+    
+     func getImage(completion: @escaping (Result<photoModelArray, Error>) -> Void) {
 
         let url = "https://api.unsplash.com/photos?page=1"
 
@@ -30,7 +32,7 @@ class ImageService {
         }
     }
     
-    static func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
+     func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
 
         let url = "https://api.unsplash.com/photos?page=\(pages)"
 
@@ -51,7 +53,7 @@ class ImageService {
         }
     }
     
-    static func searchImage(quary: String , completion: @escaping (Result<SearchImage, Error>) -> Void) {
+     func searchImage(quary: String , completion: @escaping (Result<SearchImage, Error>) -> Void) {
 
         let url = "https://api.unsplash.com/search/photos?query=\(quary)"
 

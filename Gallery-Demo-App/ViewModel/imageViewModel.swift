@@ -14,7 +14,7 @@ class ImageViewModel {
     
     func getImage(completion: @escaping (Error?) -> Void) {
         
-        ImageService.getImage {[weak self] (result) in
+        ImageService.shared.getImage {[weak self] (result) in
             switch result {
             case .success(let model) :
                 guard let self = self else {return}
@@ -30,7 +30,7 @@ class ImageViewModel {
     
     func getImageMore(pages: String, completion: @escaping (Error?) -> Void) {
         
-        ImageService.getImageMore(pages: pages ) { [weak self] (result) in
+        ImageService.shared.getImageMore(pages: pages ) { [weak self] (result) in
             switch result {
             case .success(let model) :
                 guard let self = self else {return}

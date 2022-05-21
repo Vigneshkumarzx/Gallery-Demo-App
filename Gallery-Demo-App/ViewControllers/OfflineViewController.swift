@@ -13,23 +13,35 @@ class OfflineViewController: UIViewController {
     var offlineImages: [ImageDetailEntity] = []
     
     @IBOutlet weak var showImage: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var offlineImageTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "OfflineTableViewCell", bundle: nil), forCellReuseIdentifier: "OfflineTableViewCell")
+        offlineImageTableView.delegate = self
+        offlineImageTableView.dataSource = self
+        getOfflineImage()
+        registerCell()
+        NotificationCenter.default.addObserver(self, selector: #selector(getOfflineImage), name: NSNotification.Name("imageSaved"), object: nil)
+     
+    }
+    
+    
+   @objc func getOfflineImage(){
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
         let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
         
         do {
             self.offlineImages = try manageedContext.fetch(requset)
+            self.offlineImageTableView.reloadData()
             print("the response is: \(offlineImages)")
         } catch {
             print("Error fetching data from context\(error)")
         }
+    }
+    
+    func registerCell(){
+        offlineImageTableView.register(UINib(nibName: "OfflineTableViewCell", bundle: nil), forCellReuseIdentifier: "OfflineTableViewCell")
     }
     
 }
@@ -64,7 +76,7 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
             self.offlineImages.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.offlineImageTableView.deleteRows(at: [indexPath], with: .automatic)
             complete(true)
         }
         deleteAction.image = UIImage(named: "deletebin")
@@ -80,7 +92,7 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "delete") { _, _  in
             self.offlineImages.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.offlineImageTableView.deleteRows(at: [indexPath], with: .automatic)
         }
         deleteAction.backgroundColor = .red
         return [deleteAction]
@@ -93,7 +105,7 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
             manageedContext.delete(offlineImages[sender.tag])
             try manageedContext.save()
             offlineImages.remove(at: sender.tag)
-            self.tableView.reloadData()
+            self.offlineImageTableView.reloadData()
         }
         catch {
             print(error)
