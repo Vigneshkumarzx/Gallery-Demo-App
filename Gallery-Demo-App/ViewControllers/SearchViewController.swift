@@ -13,16 +13,16 @@ class SearchViewController: UIViewController {
   
 
     @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchImageTableView: UITableView!
     
     var viewModel = SearchViewModel()
     var SearchedViewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "SearchImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchImageTableViewCell")
+        searchImageTableView.delegate = self
+        searchImageTableView.dataSource = self
+        searchImageTableView.register(UINib(nibName: "SearchImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchImageTableViewCell")
         searchImages()
         searchBar.delegate = self
         self.hideKeyboardWhenTappedAround()
@@ -65,7 +65,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
             if let error = error {
                 print(error)
             } else {
-                self.tableView.reloadData()
+                self.searchImageTableView.reloadData()
             }
         }
     }

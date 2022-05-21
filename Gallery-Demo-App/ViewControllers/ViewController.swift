@@ -13,7 +13,7 @@ import CoreData
 class HomeScreenViewController: UIViewController {
   
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     
    
     var viewModel = ImageViewModel()
@@ -22,16 +22,16 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        imageCollectionView.delegate = self
+        imageCollectionView.dataSource = self
         getImages()
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
         registerCell()
         
     }
     func registerCell(){
-        collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
-        collectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
+        imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        imageCollectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
     }
 }
 
@@ -90,13 +90,13 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pages += 1
         let position = scrollView.contentOffset.y
-        if position > (collectionView.contentSize.height-100-scrollView.frame.size.height){
+        if position > (imageCollectionView.contentSize.height-100-scrollView.frame.size.height){
             self.viewModel.getImageMore(pages: String(pages)) { error in
                 if let error = error {
                     print(error)
                 }else {
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self.imageCollectionView.reloadData()
                     }
                     
                 }
@@ -113,7 +113,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
             }
             else {
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    self.imageCollectionView.reloadData()
                 }
             }
         }
