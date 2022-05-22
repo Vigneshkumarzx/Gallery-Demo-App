@@ -9,5 +9,6 @@ target 'Gallery-Demo-App' do
 pod 'Alamofire'
 pod 'Kingfisher'
 pod 'SVProgressHUD'
+pod 'Apploader'
 
 end

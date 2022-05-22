@@ -9,6 +9,12 @@ import UIKit
 import Foundation
 import SVProgressHUD
 import CoreData
+import Apploader
+
+
+protocol AlertDelegate: AnyObject {
+   func showAlert(imageSaved: Bool)
+}
 
 class HomeScreenViewController: UIViewController {
   
@@ -18,6 +24,8 @@ class HomeScreenViewController: UIViewController {
    
     var viewModel = ImageViewModel()
     var pages = 1
+    let layout = UICollectionViewFlowLayout()
+    var alertHud: MBProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +34,30 @@ class HomeScreenViewController: UIViewController {
         imageCollectionView.dataSource = self
         getImages()
         imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         registerCell()
+        configLoader()
         
     }
     func registerCell(){
         imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
         imageCollectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
     }
+    
+    func configLoader() {
+        self.alertHud = MBProgressHUD(view: self.view)
+        alertHud.bezelView.color = UIColor(red: 53, green: 63, blue: 77, alpha: 1)
+        alertHud.bezelView.backgroundColor = .black
+        alertHud.contentColor = .white
+        alertHud.label.textColor = .white
+        self.view.addSubview(self.alertHud)
+    }
+    
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(signOf: 50.0 , magnitudeOf: 50.0)
-    }
-    
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.photosArray.count
     }
@@ -53,7 +70,8 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     } else {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.setup(image: viewModel.photosArray[indexPath.row])
-        cell.contentView.backgroundColor = .red
+        cell.delegate?.showAlert(imageSaved: true)
+        
         return cell
     }
     }

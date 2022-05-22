@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4219B2962839DAA60073625A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2952839DAA60073625A /* CardView.swift */; };
 		42254BDE2837F62900D40CC8 /* LoaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42254BDC2837F62900D40CC8 /* LoaderCollectionViewCell.swift */; };
 		42254BDF2837F62900D40CC8 /* LoaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42254BDD2837F62900D40CC8 /* LoaderCollectionViewCell.xib */; };
 		4241CEC928352164000730A0 /* OfflineImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		410F7987FE20C88A02AEBE7E /* Pods-Gallery-Demo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery-Demo-App.release.xcconfig"; path = "Target Support Files/Pods-Gallery-Demo-App/Pods-Gallery-Demo-App.release.xcconfig"; sourceTree = "<group>"; };
+		4219B2952839DAA60073625A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		42254BDC2837F62900D40CC8 /* LoaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		42254BDD2837F62900D40CC8 /* LoaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		4241CEC828352164000730A0 /* OfflineImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineImageDetailViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				42D9243A2834C2E700F45AD4 /* Extension+VIewController.swift */,
 				4268F0A92837918A00921610 /* Extension+UIView.swift */,
 				4268F0AB283794B000921610 /* Extension+Textfield.swift */,
+				4219B2952839DAA60073625A /* CardView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				42D92415283395E100F45AD4 /* PhotosModel.swift in Sources */,
 				42254BDE2837F62900D40CC8 /* LoaderCollectionViewCell.swift in Sources */,
 				42D9243D2834D00500F45AD4 /* OfflineViewController.swift in Sources */,
+				4219B2962839DAA60073625A /* CardView.swift in Sources */,
 				42D924372834BC4500F45AD4 /* SearchModel.swift in Sources */,
 				42D924492834FF8300F45AD4 /* ImageDetailEntity+CoreDataProperties.swift in Sources */,
 				4268F0AC283794B000921610 /* Extension+Textfield.swift in Sources */,

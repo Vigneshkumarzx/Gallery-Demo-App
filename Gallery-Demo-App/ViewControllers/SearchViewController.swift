@@ -47,6 +47,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchImageTableViewCell", for: indexPath) as! SearchImageTableViewCell
         cell.setup(search: viewModel.searchArray[indexPath.item])
         cell.contentView.sizeToFit()
+        cell.selectionStyle = .none
         return cell
     }
     

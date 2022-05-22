@@ -26,5 +26,7 @@ class SearchDetailViewController: UIViewController {
     func popUpView(){
         detailsImageView.kf.setImage(with: searchDetail.urls?.small?.asUrl)
         imageDeslabel.text = searchDetail.user?.username
+        imageBioLabel.text = searchDetail.user?.bio
+        imageNameLabel.text = searchDetail.user?.firstName
     }
 }
