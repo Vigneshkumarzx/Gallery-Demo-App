@@ -12,6 +12,9 @@ class SearchDetailViewController: UIViewController {
     
    
     
+    @IBOutlet weak var imgDetail: UILabel!
+    @IBOutlet weak var imgName: UILabel!
+    @IBOutlet weak var imageId: UILabel!
     @IBOutlet weak var imageBioLabel: UILabel!
     @IBOutlet weak var imageNameLabel: UILabel!
     @IBOutlet weak var detailsImageView: UIImageView!
@@ -25,8 +28,24 @@ class SearchDetailViewController: UIViewController {
     
     func popUpView(){
         detailsImageView.kf.setImage(with: searchDetail.urls?.small?.asUrl)
-        imageDeslabel.text = searchDetail.user?.username
+        imageDeslabel.text = searchDetail.user?.id
         imageBioLabel.text = searchDetail.user?.bio
         imageNameLabel.text = searchDetail.user?.firstName
+        if searchDetail.user?.id != nil {
+            imageId.isHidden = true
+        }else {
+            imageId.isHidden = false
+        }
+        if searchDetail.user?.bio != nil {
+            imgDetail.isHidden = false
+        }else {
+            imgDetail.isHidden = true
+        }
+        if searchDetail.user?.firstName != nil {
+            imgName.isHidden = false
+        }else {
+            imgName.isHidden = true
+        }
+        
     }
 }
