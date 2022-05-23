@@ -21,7 +21,7 @@ class SearchImageTableViewCell: UITableViewCell {
     func setup(search: Results?) {
         guard let search = search else {return}
         searchImage.kf.setImage(with: (search.urls?.small ?? "").asUrl)
-        numLikesLabel.text = "\(search.likes!)"
+        numLikesLabel.text = "\(search.likes ?? 0)"
         usernameLabel.text = search.user?.username
         userBioLabel.text = search.user?.bio
     }
