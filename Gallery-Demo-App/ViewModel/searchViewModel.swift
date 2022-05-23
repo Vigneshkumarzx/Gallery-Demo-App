@@ -15,7 +15,6 @@ class SearchViewModel{
             switch result {
             case .success(let model) :
                 guard let self = self else {return}
-                self.searchArray.removeAll()
                 self.searchArray = model.results
                 completion(nil)
             case .failure(let error) :

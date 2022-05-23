@@ -18,7 +18,6 @@ struct NetworkManager {
         return manager
     }
     static func get(_ url: String,
-                    token: String,
                     success: @escaping(_ response: Data?, _ statusCode: Int) -> Void,
                     failed: @escaping(_ error: Error?, _ statusCode: Int) -> Void) {
         
@@ -26,8 +25,8 @@ struct NetworkManager {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HTTPMethod.get.rawValue
         
-        let accessToken = "Client-ID 038865ae4edb7c4e2aeb2af607e890526108163ad9a40a13da98ca1185404d03"
-        urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
+       
+        urlRequest.addValue(AppConstants.ACCESS_TOKEN, forHTTPHeaderField: "Authorization")
         NetworkManager.sharedManager.request(urlRequest).responseData { (response) in
             
             if let statusCode = response.response?.statusCode {
@@ -84,9 +83,8 @@ struct NetworkManager {
         guard let url = URL(string: url) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HTTPMethod.delete.rawValue
-        
-        let accessToken = "Client-ID 038865ae4edb7c4e2aeb2af607e890526108163ad9a40a13da98ca1185404d03"
-        urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
+    
+        urlRequest.addValue(AppConstants.ACCESS_TOKEN, forHTTPHeaderField: "Authorization")
         
         NetworkManager.sharedManager.request(urlRequest).responseJSON { (response) in
             

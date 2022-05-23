@@ -25,16 +25,15 @@ class HomeScreenViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageCollectionView.delegate = self
-        imageCollectionView.dataSource = self
         getImages()
-        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
         registerCell()
         configLoader()
+        configureCollectionLayout()
     }
+    
     func registerCell(){
+        imageCollectionView.delegate = self
+        imageCollectionView.dataSource = self
         imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
         imageCollectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
     }
@@ -46,6 +45,11 @@ class HomeScreenViewController: UIViewController  {
         alertHud.label.textColor = .white
         self.view.addSubview(self.alertHud)
     }
+    func configureCollectionLayout(){
+        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+    }
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
@@ -53,54 +57,39 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         return viewModel.photosArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {if indexPath.row == viewModel.photosArray.count - 1 {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
-        cell.loaderActivity.startAnimating()
-        return cell
-    } else {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.setup(image: viewModel.photosArray[indexPath.row])
-        cell.delegate = self
-        return cell
-    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == viewModel.photosArray.count - 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
+            cell.loaderActivity.startAnimating()
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+            cell.setup(image: viewModel.photosArray[indexPath.row])
+            cell.delegate = self
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let vc = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
         vc.details = viewModel.photosArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
-   
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          let lay = collectionViewLayout as! UICollectionViewFlowLayout
-          let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
-          return CGSize(width:widthPerItem, height: widthPerItem)
-      }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerView", for: indexPath)
-       return footerView
-    }
-    
-    private func createSpinnerFooter() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-        return footerView
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let lay = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
+        return CGSize(width:widthPerItem, height: widthPerItem)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pages += 1
         let position = scrollView.contentOffset.y
-        if position > (imageCollectionView.contentSize.height-100-scrollView.frame.size.height){
+        if position > (imageCollectionView.contentSize.height - 100 - scrollView.frame.size.height) {
             self.viewModel.getImageMore(pages: String(pages)) { error in
-                if let error = error {
-                    print(error)
-                }else {
+                if error == nil {
                     DispatchQueue.main.async {
                         self.imageCollectionView.reloadData()
                     }
@@ -112,10 +101,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         SVProgressHUD.show()
         viewModel.getImage { error in
             SVProgressHUD.dismiss()
-            if let error = error {
-                print(error)
-            }
-            else {
+            if  error == nil {
                 DispatchQueue.main.async {
                     self.imageCollectionView.reloadData()
                 }
@@ -125,8 +111,6 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
 }
 extension HomeScreenViewController: AlertDelegate {
     func showAlert(imageSaved: Bool){
-       if imageSaved {
-            self.alertHud.showText(msg: "Image saved to offline",delay: 2)
-        }
+        imageSaved ? self.alertHud.showText(msg: "Image saved to offline",delay: 2) : ()
     }
 }

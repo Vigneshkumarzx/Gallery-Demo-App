@@ -20,18 +20,28 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        searchImages()
+        hideKeyboardWhenTappedAround()
+        registerCell()
+        searchBarConfigure()
+    }
+    func registerCell() {
+        searchBar.delegate = self
         searchImageTableView.delegate = self
         searchImageTableView.dataSource = self
-        searchImageTableView.register(UINib(nibName: "SearchImageTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchImageTableViewCell")
-        searchImages()
-        searchBar.delegate = self
-        self.hideKeyboardWhenTappedAround()
+        let searchImageTableViewCellNib = UINib(nibName: "SearchImageTableViewCell", bundle: nil)
+        searchImageTableView.register(searchImageTableViewCellNib, forCellReuseIdentifier: "SearchImageTableViewCell")
+    }
+    func searchBarConfigure() {
         searchBar.tintColor = UIColor.lightGray
-        searchBar.setIcon(UIImage(named: "magnifyingglass")!)
+        if let searBarIcon = UIImage(named: "magnifyingglass") {
+            searchBar.setIcon(searBarIcon)
+        }
     }
 }
 
-extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         250
@@ -51,19 +61,17 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
         vc.searchDetail = viewModel.searchArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
-   
+    
     func searchImages(quary: String = "cars"){
         SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ error in
             SVProgressHUD.dismiss()
-            if let error = error {
-                print(error)
-            } else {
+            if  error == nil {
                 self.searchImageTableView.reloadData()
             }
         }
@@ -78,7 +86,7 @@ extension SearchViewController: UITextFieldDelegate {
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true;
+        return true
     }
     
     @objc func callApi() {

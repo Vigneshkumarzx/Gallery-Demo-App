@@ -12,17 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell autoresizesSubviews="NO" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ImageCollectionViewCell" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="Gallery_Demo_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="288" height="314"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="288" height="314"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFY-GK-fFJ" customClass="cardView" customModule="Gallery_Demo_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="8" width="150" height="172"/>
+                        <rect key="frame" x="0.0" y="8" width="288" height="306"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yae-gn-ANN">
-                                <rect key="frame" x="8" y="8" width="134" height="117"/>
+                                <rect key="frame" x="8" y="8" width="272" height="117"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="117" id="WbV-Qz-bce"/>
                                 </constraints>
@@ -33,10 +33,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SXv-td-Aqu">
-                                <rect key="frame" x="8" y="133" width="134" height="31"/>
+                                <rect key="frame" x="8" y="133" width="272" height="165"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejg-RV-ppj">
-                                        <rect key="frame" x="0.0" y="0.0" width="58" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="227" height="165"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
@@ -48,7 +48,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuR-0B-G6E">
-                                        <rect key="frame" x="63" y="0.0" width="71" height="31"/>
+                                        <rect key="frame" x="232" y="0.0" width="40" height="165"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="foB-6W-QFg"/>
+                                        </constraints>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -88,7 +91,7 @@
                 <constraint firstAttribute="trailing" secondItem="sFY-GK-fFJ" secondAttribute="trailing" id="d9h-jj-18u"/>
                 <constraint firstAttribute="bottom" secondItem="sFY-GK-fFJ" secondAttribute="bottom" id="zeA-Vq-lUB"/>
             </constraints>
-            <size key="customSize" width="230" height="183"/>
+            <size key="customSize" width="368" height="317"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <real key="value" value="20"/>
@@ -99,7 +102,7 @@
                 <outlet property="imageNameLabel" destination="Ejg-RV-ppj" id="yL0-l2-epx"/>
                 <outlet property="showImage" destination="yae-gn-ANN" id="3am-8r-AVH"/>
             </connections>
-            <point key="canvasLocation" x="266.66666666666669" y="111.16071428571428"/>
+            <point key="canvasLocation" x="13" y="172"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -18,6 +18,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var downLoadButton: UIButton!
     @IBOutlet weak var imageNameLabel: UILabel!
     @IBOutlet weak var showImage: UIImageView!
+    
     var imgName: String?
     var alertHud: MBProgressHUD!
     var delegate: AlertDelegate?
