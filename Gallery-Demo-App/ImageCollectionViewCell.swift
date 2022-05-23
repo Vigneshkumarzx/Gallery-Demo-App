@@ -12,23 +12,19 @@ import SwiftUI
 import Apploader
 
 
+class ImageCollectionViewCell: UICollectionViewCell {
 
-
-
-class ImageCollectionViewCell: UICollectionViewCell, AlertDelegate {
-
-  
     
     @IBOutlet weak var downLoadButton: UIButton!
     @IBOutlet weak var imageNameLabel: UILabel!
-    @IBOutlet weak var imageDescriptionLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var showImage: UIImageView!
     var imgName: String?
     var alertHud: MBProgressHUD!
     var delegate: AlertDelegate?
     
     override func awakeFromNib() {
         configLoader()
+        imageNameLabel.font = UIFont(name: AppConstants.PTSANSNARROW_REGULAR, size: 15)
     }
     
     func configLoader() {
@@ -41,7 +37,7 @@ class ImageCollectionViewCell: UICollectionViewCell, AlertDelegate {
     }
        
     @IBAction func downloadButtonTapped(_ sender: UIButton) {
-        if let img = imageView.image {
+        if let img = showImage.image {
             downLoadButton.adjustsImageWhenHighlighted = false
             guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             let manageedContext = appdelegate.persistentContainer.viewContext
@@ -62,15 +58,10 @@ class ImageCollectionViewCell: UICollectionViewCell, AlertDelegate {
     
     func setup(image: PhotosModel?){
         guard let image = image else {return}
-        imageView.kf.setImage(with:(image.urls?.small ?? "").asUrl)
+        showImage.kf.indicatorType = .activity
+        showImage.kf.setImage(with: (image.urls?.small ?? "").asUrl, placeholder:UIImage(named: "placeHolder"))
         imageNameLabel.text = image.user?.firstName ?? ""
         self.imgName = image.user?.firstName
-    }
-    
-    func showAlert(imageSaved: Bool){
-       if imageSaved {
-            self.alertHud.showText(msg: "Image saved to offline",delay: 2)
-        }
     }
 
    

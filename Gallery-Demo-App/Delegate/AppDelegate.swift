@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         return true
     }
+    
+  
 
     // MARK: UISceneSession Lifecycle
 

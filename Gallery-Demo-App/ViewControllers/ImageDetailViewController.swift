@@ -25,10 +25,9 @@ class ImageDetailViewController: UIViewController {
         super.viewDidLoad()
         populateView()
         imageDescription.numberOfLines = 0
-        
     }
     private func populateView(){
-        imageView.kf.setImage(with: details.urls?.small?.asUrl)
+        imageView.kf.setImage(with: details.urls?.full?.asUrl,placeholder: UIImage(named: "placeHolder"))
         imageNameLabel.text = details.user?.name
         imageDescription.text = details.user?.bio
         userIdLabel.text = details.user?.id
@@ -49,3 +48,5 @@ class ImageDetailViewController: UIViewController {
     }
     
 }
+
+

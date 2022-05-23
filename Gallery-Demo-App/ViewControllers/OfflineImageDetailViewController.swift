@@ -9,10 +9,9 @@ import UIKit
 
 class OfflineImageDetailViewController: UIViewController {
     
+    @IBOutlet weak var offlineDetailImageView: UIImageView!
     var offlineDetails: ImageDetailEntity!
 
-    @IBOutlet weak var offlineDetailImageView: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,6 +20,5 @@ class OfflineImageDetailViewController: UIViewController {
         if let data = offlineDetails.img {
             offlineDetailImageView.image = UIImage(data: data)
         }
-        
     }
 }

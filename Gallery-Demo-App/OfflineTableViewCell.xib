@@ -47,7 +47,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="deleteButton" destination="I2p-up-nWd" id="CQR-as-aeD"/>
-                <outlet property="offlineImageView" destination="QQS-UR-vWz" id="BBG-Ba-loT"/>
+                <outlet property="offlineImage" destination="QQS-UR-vWz" id="BBG-Ba-loT"/>
             </connections>
             <point key="canvasLocation" x="166.66666666666669" y="70.647321428571431"/>
         </tableViewCell>

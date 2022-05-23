@@ -7,13 +7,15 @@
 
 import UIKit
 import CoreData
+import Apploader
 
 class OfflineViewController: UIViewController {
-
-    var offlineImages: [ImageDetailEntity] = []
     
-    @IBOutlet weak var showImage: UIButton!
     @IBOutlet weak var offlineImageTableView: UITableView!
+    
+    var offlineImages: [ImageDetailEntity] = []
+    var alertHud: MBProgressHUD!
+    var deleteData: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +23,11 @@ class OfflineViewController: UIViewController {
         offlineImageTableView.dataSource = self
         getOfflineImage()
         registerCell()
+        configLoader()
         NotificationCenter.default.addObserver(self, selector: #selector(getOfflineImage), name: NSNotification.Name("imageSaved"), object: nil)
-     
     }
-    
-    
-   @objc func getOfflineImage(){
+
+    @objc func getOfflineImage(){
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
         let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
@@ -44,6 +45,15 @@ class OfflineViewController: UIViewController {
         offlineImageTableView.register(UINib(nibName: "OfflineTableViewCell", bundle: nil), forCellReuseIdentifier: "OfflineTableViewCell")
     }
     
+    func configLoader() {
+        self.alertHud = MBProgressHUD(view: self.view)
+        alertHud.bezelView.color = UIColor(red: 53, green: 63, blue: 77, alpha: 1)
+        alertHud.bezelView.backgroundColor = .black
+        alertHud.contentColor = .white
+        alertHud.label.textColor = .white
+        self.view.addSubview(self.alertHud)
+    }
+    
 }
 
 extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
@@ -53,7 +63,7 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return offlineImages.count
+        return offlineImages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,15 +71,12 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
         cell.setup(details: offlineImages[indexPath.row])
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(deleteButtonAction), for: .touchUpInside)
-//        cell.deleteImages = offlineImages[indexPath.row]
-       
-        
-       return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let vc = storyboard.instantiateViewController(withIdentifier: "OfflineImageDetailViewController") as! OfflineImageDetailViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "OfflineImageDetailViewController") as! OfflineImageDetailViewController
         vc.offlineDetails = offlineImages[indexPath.row]
     }
     
@@ -89,22 +96,29 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "delete") { _, _  in
-            self.offlineImages.remove(at: indexPath.row)
-            self.offlineImageTableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-        deleteAction.backgroundColor = .red
-        return [deleteAction]
+    @objc func deleteButtonAction(sender: UIButton) {
+        deleteData = sender.tag
+        deleteAlertView()
+    }
+}
+
+extension OfflineViewController {
+    func deleteAlertView() {
+        let alert = UIAlertController(title: "Are you sure you want to delete?", message: nil, preferredStyle: .alert)
+        let yesAction = (UIAlertAction(title: "yes", style: .default, handler:deleteButtonHandler(alerAction:)))
+        let NoAction = (UIAlertAction(title: "No", style: .default))
+        alert.addAction(yesAction)
+        alert.addAction(NoAction)
+        self.present(alert, animated: true)
     }
     
-    @objc func deleteButtonAction(sender: UIButton) {
+    func deleteButtonHandler(alerAction: UIAlertAction){
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
         do {
-            manageedContext.delete(offlineImages[sender.tag])
+            manageedContext.delete(offlineImages[deleteData ?? 0])
             try manageedContext.save()
-            offlineImages.remove(at: sender.tag)
+            offlineImages.remove(at: deleteData ?? 0)
             self.offlineImageTableView.reloadData()
         }
         catch {
@@ -113,4 +127,3 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
 }
-

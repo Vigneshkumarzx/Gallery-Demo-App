@@ -10,18 +10,18 @@ import CoreData
 import Kingfisher
 
 class OfflineTableViewCell: UITableViewCell {
-
-    var deleteImages: NSManagedObject!
-    @IBOutlet weak var offlineImageView: UIImageView!
     
+    @IBOutlet weak var offlineImage: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
+    var deleteImages: NSManagedObject!
     
     func setup(details: ImageDetailEntity) {
         
         if let data = details.img {
-            offlineImageView.image = UIImage(data: data)
+            offlineImage.image = UIImage(data: data)
         }
         deleteImages = details
+        
     }
    
        

@@ -11,17 +11,13 @@ import SVProgressHUD
 import CoreData
 import Apploader
 
-
 protocol AlertDelegate: AnyObject {
-   func showAlert(imageSaved: Bool)
+    func showAlert(imageSaved: Bool)
 }
-
-class HomeScreenViewController: UIViewController {
-  
-
+class HomeScreenViewController: UIViewController  {
+ 
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
-   
     var viewModel = ImageViewModel()
     var pages = 1
     let layout = UICollectionViewFlowLayout()
@@ -29,7 +25,6 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         getImages()
@@ -38,13 +33,11 @@ class HomeScreenViewController: UIViewController {
         layout.minimumLineSpacing = 0
         registerCell()
         configLoader()
-        
     }
     func registerCell(){
         imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
         imageCollectionView.register(UINib(nibName: "LoaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionViewCell")
     }
-    
     func configLoader() {
         self.alertHud = MBProgressHUD(view: self.view)
         alertHud.bezelView.color = UIColor(red: 53, green: 63, blue: 77, alpha: 1)
@@ -53,11 +46,9 @@ class HomeScreenViewController: UIViewController {
         alertHud.label.textColor = .white
         self.view.addSubview(self.alertHud)
     }
-    
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.photosArray.count
     }
@@ -66,12 +57,10 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
         cell.loaderActivity.startAnimating()
         return cell
-        
     } else {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.setup(image: viewModel.photosArray[indexPath.row])
-        cell.delegate?.showAlert(imageSaved: true)
-        
+        cell.delegate = self
         return cell
     }
     }
@@ -82,7 +71,6 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
         vc.details = viewModel.photosArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
-       
     }
    
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -116,12 +104,10 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
                     DispatchQueue.main.async {
                         self.imageCollectionView.reloadData()
                     }
-                    
                 }
             }
         }
     }
-    
     func getImages(){
         SVProgressHUD.show()
         viewModel.getImage { error in
@@ -136,5 +122,11 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
             }
         }
     }
-    
+}
+extension HomeScreenViewController: AlertDelegate {
+    func showAlert(imageSaved: Bool){
+       if imageSaved {
+            self.alertHud.showText(msg: "Image saved to offline",delay: 2)
+        }
+    }
 }

@@ -10,8 +10,6 @@ import Kingfisher
 
 class SearchDetailViewController: UIViewController {
     
-   
-    
     @IBOutlet weak var imgDetail: UILabel!
     @IBOutlet weak var imgName: UILabel!
     @IBOutlet weak var imageId: UILabel!
@@ -25,16 +23,15 @@ class SearchDetailViewController: UIViewController {
         super.viewDidLoad()
         popUpView()
    }
-    
     func popUpView(){
-        detailsImageView.kf.setImage(with: searchDetail.urls?.small?.asUrl)
+        detailsImageView.kf.setImage(with: searchDetail.urls?.full?.asUrl)
         imageDeslabel.text = searchDetail.user?.id
         imageBioLabel.text = searchDetail.user?.bio
         imageNameLabel.text = searchDetail.user?.firstName
         if searchDetail.user?.id != nil {
-            imageId.isHidden = true
-        }else {
             imageId.isHidden = false
+        }else {
+            imageId.isHidden = true
         }
         if searchDetail.user?.bio != nil {
             imgDetail.isHidden = false
@@ -46,6 +43,5 @@ class SearchDetailViewController: UIViewController {
         }else {
             imgName.isHidden = true
         }
-        
     }
 }

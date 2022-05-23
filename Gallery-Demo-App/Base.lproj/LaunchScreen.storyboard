@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,21 +11,32 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="fMv-R4-lXZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppStore" translatesAutoresizingMaskIntoConstraints="NO" id="rNv-gd-Wcc">
-                                <rect key="frame" x="87" y="318" width="240" height="261"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="3M6-kV-oQQ">
+                                <rect key="frame" x="80" y="320" width="254" height="306"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="photos" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-Is-vTz">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="255.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Photo Vault" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pff-9O-wsJ">
+                                        <rect key="frame" x="0.0" y="284.5" width="254" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="OD2-TU-KMt"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rNv-gd-Wcc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="6og-Nq-rQz"/>
-                            <constraint firstItem="rNv-gd-Wcc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="274" id="84R-sl-bR7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rNv-gd-Wcc" secondAttribute="bottom" constant="283" id="Tvn-a5-KCq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rNv-gd-Wcc" secondAttribute="trailing" constant="87" id="xD7-6p-lmX"/>
+                            <constraint firstItem="3M6-kV-oQQ" firstAttribute="top" secondItem="OD2-TU-KMt" secondAttribute="top" constant="276" id="QlO-fG-51L"/>
+                            <constraint firstItem="3M6-kV-oQQ" firstAttribute="leading" secondItem="OD2-TU-KMt" secondAttribute="leading" constant="80" id="RTv-DC-PVv"/>
+                            <constraint firstAttribute="bottom" secondItem="3M6-kV-oQQ" secondAttribute="bottom" constant="270" id="col-35-GS2"/>
+                            <constraint firstAttribute="trailing" secondItem="3M6-kV-oQQ" secondAttribute="trailing" constant="80" id="eDe-If-o9n"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,9 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppStore" width="1024" height="1024"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="photos" width="2278" height="1636"/>
     </resources>
 </document>

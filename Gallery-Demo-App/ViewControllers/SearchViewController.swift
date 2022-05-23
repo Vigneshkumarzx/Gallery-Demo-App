@@ -28,9 +28,7 @@ class SearchViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         searchBar.tintColor = UIColor.lightGray
         searchBar.setIcon(UIImage(named: "magnifyingglass")!)
-       
     }
-    
 }
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
@@ -89,14 +87,12 @@ extension SearchViewController: UITextFieldDelegate {
     }
 }
 
-
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

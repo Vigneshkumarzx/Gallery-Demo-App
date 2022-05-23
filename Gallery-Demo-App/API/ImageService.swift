@@ -8,13 +8,10 @@
 import Foundation
 
 class ImageService {
-    
    static let shared = ImageService()
     
      func getImage(completion: @escaping (Result<photoModelArray, Error>) -> Void) {
-
         let url = "https://api.unsplash.com/photos?page=1"
-
         NetworkManager.get(url, token: "") { (response, _) in
             do {
                 if let data = response {
@@ -33,9 +30,7 @@ class ImageService {
     }
     
      func getImageMore(pages: String, completion: @escaping (Result<photoModelArray, Error>) -> Void) {
-
         let url = "https://api.unsplash.com/photos?page=\(pages)"
-
         NetworkManager.get(url, token: "") { (response, _) in
             do {
                 if let data = response {
@@ -54,9 +49,7 @@ class ImageService {
     }
     
      func searchImage(quary: String , completion: @escaping (Result<SearchImage, Error>) -> Void) {
-
         let url = "https://api.unsplash.com/search/photos?query=\(quary)"
-
         NetworkManager.get(url, token: "") { (response, _) in
             do {
                 if let data = response {
