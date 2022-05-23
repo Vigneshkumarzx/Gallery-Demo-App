@@ -22,9 +22,10 @@ class SearchDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popUpView()
+        imageBioLabel.numberOfLines = 0
    }
     func popUpView(){
-        detailsImageView.kf.setImage(with: searchDetail.urls?.full?.asUrl)
+        detailsImageView.kf.setImage(with: searchDetail.urls?.full?.asUrl,placeholder: UIImage(named: "placeHolder"))
         imageDeslabel.text = searchDetail.user?.id
         imageBioLabel.text = searchDetail.user?.bio
         imageNameLabel.text = searchDetail.user?.firstName

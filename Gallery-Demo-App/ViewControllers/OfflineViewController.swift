@@ -11,6 +11,7 @@ import Apploader
 
 class OfflineViewController: UIViewController {
     
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var offlineImageTableView: UITableView!
     
     var offlineImages: [ImageDetailEntity] = []
@@ -63,6 +64,7 @@ extension OfflineViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        messageLabel.isHidden = !offlineImages.isEmpty
         return offlineImages.count
     }
     
