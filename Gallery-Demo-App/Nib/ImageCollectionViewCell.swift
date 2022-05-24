@@ -44,10 +44,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
             downLoadButton.adjustsImageWhenHighlighted = false
             guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             let manageedContext = appdelegate.persistentContainer.viewContext
-            let entityName = ImageDetailEntity(context: manageedContext)
-            entityName.img = img.jpegData(compressionQuality: 1.0)
-            entityName.imgName = imgName
-            entityName.id = id
             let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
             if let imageId = id {
                 let resultPredicate = NSPredicate(format: "id == %@", imageId)
@@ -56,6 +52,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
             do {
                 let imageDetails = try manageedContext.fetch(requset)
                 if imageDetails.isEmpty {
+                    let entityName = ImageDetailEntity(context: manageedContext)
+                    entityName.img = img.jpegData(compressionQuality: 1.0)
+                    entityName.imgName = imgName
+                    entityName.id = id
                     try manageedContext.save()
                     delegate?.showAlert(imageSaved: true)
                     NotificationCenter.default.post(name: NSNotification.Name("imageSaved"), object: nil)
