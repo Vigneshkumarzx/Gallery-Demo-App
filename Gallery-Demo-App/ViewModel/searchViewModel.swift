@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchViewModel{
+class SearchViewModel {
     var searchArray: [Results] = []
     
     func searchImage(quary: String, completion: @escaping (Error?) -> Void) {

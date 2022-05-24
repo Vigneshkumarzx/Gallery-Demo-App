@@ -31,7 +31,7 @@ class HomeScreenViewController: UIViewController  {
         configureCollectionLayout()
     }
     
-    func registerCell(){
+    func registerCell() {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
@@ -45,7 +45,7 @@ class HomeScreenViewController: UIViewController  {
         alertHud.label.textColor = .white
         self.view.addSubview(self.alertHud)
     }
-    func configureCollectionLayout(){
+    func configureCollectionLayout() {
         imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -97,7 +97,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
             }
         }
     }
-    func getImages(){
+    func getImages() {
         SVProgressHUD.show()
         viewModel.getImageMore(pages: "1") { error in
             if  error == nil {
@@ -113,7 +113,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     }
 }
 extension HomeScreenViewController: AlertDelegate {
-    func showAlert(imageSaved: Bool){
-        imageSaved ? self.alertHud.showText(msg: "Image saved to offline",delay: 2) : ()
+    func showAlert(imageSaved: Bool) {
+        imageSaved ? self.alertHud.showText(msg: "Image saved to offline",delay: 2) : (self.alertHud.showText(msg: "Image already Saved",delay: 2))
     }
 }

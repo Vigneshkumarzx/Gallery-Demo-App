@@ -69,7 +69,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func searchImages(quary: String = "cars"){
+    func searchImages(quary: String = "cars") {
         SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ error in
             

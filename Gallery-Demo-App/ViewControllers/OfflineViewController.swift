@@ -30,13 +30,13 @@ class OfflineViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getOfflineImage), name: NSNotification.Name("imageSaved"), object: nil)
     }
 
-    @objc func getOfflineImage(){
+    @objc func getOfflineImage() {
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
         let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
-        
         do {
             self.offlineImages = try manageedContext.fetch(requset)
+            
             self.offlineImageTableView.reloadData()
             print("the response is: \(offlineImages)")
         } catch {
@@ -44,7 +44,7 @@ class OfflineViewController: UIViewController {
         }
     }
     
-    func registerCell(){
+    func registerCell() {
         offlineImageTableView.register(UINib(nibName: "OfflineTableViewCell", bundle: nil), forCellReuseIdentifier: "OfflineTableViewCell")
     }
     
@@ -116,7 +116,7 @@ extension OfflineViewController {
         self.present(alert, animated: true)
     }
     
-    func deleteButtonHandler(alerAction: UIAlertAction){
+    func deleteButtonHandler(alerAction: UIAlertAction) {
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let manageedContext = appdelegate.persistentContainer.viewContext
         do {
