@@ -4,13 +4,15 @@ PODS:
     - MBProgressHUD (~> 1.0.0)
   - Kingfisher (7.2.1)
   - MBProgressHUD (1.0.0)
-  - SVProgressHUD (2.2.5)
+  - SVProgressHUD (2.2.6):
+    - SVProgressHUD/Core (= 2.2.6)
+  - SVProgressHUD/Core (2.2.6)
 
 DEPENDENCIES:
   - Alamofire
   - Apploader
   - Kingfisher
-  - SVProgressHUD
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
 SPEC REPOS:
   trunk:
@@ -18,15 +20,23 @@ SPEC REPOS:
     - Apploader
     - Kingfisher
     - MBProgressHUD
-    - SVProgressHUD
+
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: de1d4dba816a19454329031156b8788692bcfa2c
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   Apploader: 939a1e537cf45c753baab7cc726e82cab67b737d
   Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 5ad525d7b8e6c7450949003db7c2366293596399
+PODFILE CHECKSUM: 4e96c58115b384564135f9d96c467191552b3876
 
 COCOAPODS: 1.11.2

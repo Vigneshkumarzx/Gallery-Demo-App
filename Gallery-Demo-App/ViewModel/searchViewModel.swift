@@ -14,8 +14,7 @@ class SearchViewModel{
         ImageService.shared.searchImage(quary: quary){ [weak self] (result) in
             switch result {
             case .success(let model) :
-                guard let self = self else {return}
-                self.searchArray = model.results
+                self?.searchArray = model.results
                 completion(nil)
             case .failure(let error) :
                 completion(error)

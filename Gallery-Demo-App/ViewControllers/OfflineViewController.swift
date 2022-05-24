@@ -22,6 +22,8 @@ class OfflineViewController: UIViewController {
         super.viewDidLoad()
         offlineImageTableView.delegate = self
         offlineImageTableView.dataSource = self
+        offlineImageTableView.tableFooterView = nil
+        offlineImageTableView.separatorStyle = .none
         getOfflineImage()
         registerCell()
         configLoader()

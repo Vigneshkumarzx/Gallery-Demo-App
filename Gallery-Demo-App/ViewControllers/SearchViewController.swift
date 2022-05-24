@@ -30,6 +30,8 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         searchImageTableView.delegate = self
         searchImageTableView.dataSource = self
+        searchImageTableView.separatorStyle = .none
+        searchImageTableView.tableFooterView = nil
         let searchImageTableViewCellNib = UINib(nibName: "SearchImageTableViewCell", bundle: nil)
         searchImageTableView.register(searchImageTableViewCellNib, forCellReuseIdentifier: "SearchImageTableViewCell")
     }
@@ -61,8 +63,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as! SearchDetailViewController
-        vc.searchDetail = viewModel.searchArray[indexPath.row]
+        let vc = storyboard.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
+        vc.details = viewModel.searchArray[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -70,9 +72,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func searchImages(quary: String = "cars"){
         SVProgressHUD.show()
         self.viewModel.searchImage(quary: quary){ error in
-            SVProgressHUD.dismiss()
-            if  error == nil {
-                self.searchImageTableView.reloadData()
+            
+            DispatchQueue.main.async {
+                if  error == nil {
+                    SVProgressHUD.dismiss()
+                    self.searchImageTableView.reloadData()
+                } else {
+                    SVProgressHUD.dismiss()
+                    print("error")
+                    SVProgressHUD.showError(withStatus: "No data")
+                    self.viewModel.searchArray.removeAll()
+                    self.searchImageTableView.reloadData()
+                }
             }
         }
     }
@@ -81,7 +92,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(callApi), object: nil)
-        self.perform(#selector(callApi), with: nil, afterDelay: 0.5)
+        self.perform(#selector(callApi), with: nil)
         return true
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -93,6 +104,7 @@ extension SearchViewController: UITextFieldDelegate {
         guard let searchText = searchBar.text else { return }
         searchImages(quary: searchText)
     }
+    
 }
 
 extension UIViewController {

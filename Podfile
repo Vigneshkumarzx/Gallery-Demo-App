@@ -8,7 +8,7 @@ target 'Gallery-Demo-App' do
   # Pods for Gallery-Demo-App
 pod 'Alamofire'
 pod 'Kingfisher'
-pod 'SVProgressHUD'
+pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 pod 'Apploader'
 
 end

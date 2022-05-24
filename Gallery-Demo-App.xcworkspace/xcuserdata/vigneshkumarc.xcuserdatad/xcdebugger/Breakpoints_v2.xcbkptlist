@@ -16,5 +16,85 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64CA3E9B-2D6A-48B7-BE92-7B6117C059EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallery-Demo-App/API/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "get(_:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C49FC264-5F01-4150-935E-8CF47D188855"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallery-Demo-App/API/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "get(_:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71C1F33D-62B3-4FB2-88A4-4BAAD8581ECE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gallery-Demo-App/API/ImageService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getImageMore(pages:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71C1F33D-62B3-4FB2-88A4-4BAAD8581ECE - cad8beb8bab2bd46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;, Swift.Int) -&gt; () in Gallery_Demo_App.ImageService.getImageMore(pages: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Gallery_Demo_App.Results&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Gallery-Demo-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vigneshkumarc/Desktop/Gallery-Demo-App/Gallery-Demo-App/API/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "71C1F33D-62B3-4FB2-88A4-4BAAD8581ECE - cad8beb8bab2bd46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;, Swift.Int) -&gt; () in Gallery_Demo_App.ImageService.getImageMore(pages: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Gallery_Demo_App.Results&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Gallery-Demo-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vigneshkumarc/Desktop/Gallery-Demo-App/Gallery-Demo-App/API/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "147">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

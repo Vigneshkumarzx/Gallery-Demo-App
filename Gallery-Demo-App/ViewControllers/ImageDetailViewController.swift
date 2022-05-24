@@ -10,7 +10,7 @@ import Kingfisher
 
 class ImageDetailViewController: UIViewController {
     
-    var details: PhotosModel!
+    var details: Results!
 
     @IBOutlet weak var imageId: UILabel!
     

@@ -25,23 +25,26 @@ struct NetworkManager {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HTTPMethod.get.rawValue
         
-       
+        urlRequest.timeoutInterval = 10
         urlRequest.addValue(AppConstants.ACCESS_TOKEN, forHTTPHeaderField: "Authorization")
         NetworkManager.sharedManager.request(urlRequest).responseData { (response) in
+            print("the Response is: \(String(data: response.data!, encoding: .utf8))")
             
             if let statusCode = response.response?.statusCode {
                 switch statusCode {
                 case APIStatusCode.success.rawValue:
                     if let responseData = response.data {
                         success(responseData, statusCode)
+                    } else {
+                        failed(APIResponseError.badRequest, statusCode)
                     }
                 default:
-                    failed(response.error, statusCode)
+                    failed(APIResponseError.badRequest, statusCode)
                 }
             }
         }
     }
-    
+    /*
     static func put(_ url: String,
                     token: String,
                     requestBody: Parameters,
@@ -98,6 +101,7 @@ struct NetworkManager {
             }
         }
     }
+     */
 }
 
 enum APIStatusCode: Int {

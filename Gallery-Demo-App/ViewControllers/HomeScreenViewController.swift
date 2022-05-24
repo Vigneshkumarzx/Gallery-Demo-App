@@ -99,13 +99,16 @@ extension HomeScreenViewController: UICollectionViewDelegate,UICollectionViewDat
     }
     func getImages(){
         SVProgressHUD.show()
-        viewModel.getImage { error in
-            SVProgressHUD.dismiss()
+        viewModel.getImageMore(pages: "1") { error in
             if  error == nil {
                 DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
                     self.imageCollectionView.reloadData()
                 }
+            } else {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
+            
         }
     }
 }
