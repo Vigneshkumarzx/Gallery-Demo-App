@@ -20,6 +20,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var showImage: UIImageView!
     
     var imgName: String?
+    var id: String?
     var alertHud: MBProgressHUD!
     var delegate: AlertDelegate?
     
@@ -38,6 +39,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
        
     @IBAction func downloadButtonTapped(_ sender: UIButton) {
+        
         if let img = showImage.image {
             downLoadButton.adjustsImageWhenHighlighted = false
             guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {return}
@@ -45,25 +47,35 @@ class ImageCollectionViewCell: UICollectionViewCell {
             let entityName = ImageDetailEntity(context: manageedContext)
             entityName.img = img.jpegData(compressionQuality: 1.0)
             entityName.imgName = imgName
-            do{
-                try manageedContext.save()
-                delegate?.showAlert(imageSaved: true)
-                debugPrint("Image Saved Successfully")
+            entityName.id = id
+            let requset: NSFetchRequest<ImageDetailEntity> = ImageDetailEntity.fetchRequest()
+            if let imageId = id {
+                let resultPredicate = NSPredicate(format: "id == %@", imageId)
+                requset.predicate = resultPredicate
+            }
+            do {
+                let imageDetails = try manageedContext.fetch(requset)
+                if imageDetails.isEmpty {
+                    try manageedContext.save()
+                    delegate?.showAlert(imageSaved: true)
+                    NotificationCenter.default.post(name: NSNotification.Name("imageSaved"), object: nil)
+                } else {
+                    delegate?.showAlert(imageSaved: false)
+                }
+                print(imageDetails)
             }
             catch {
-                print(error)
+                print(error.localizedDescription)
             }
-            NotificationCenter.default.post(name: NSNotification.Name("imageSaved"), object: nil)
         }
     }
     
-    func setup(image: PhotosModel?){
+    func setup(image: Results?) {
         guard let image = image else {return}
         showImage.kf.indicatorType = .activity
         showImage.kf.setImage(with: (image.urls?.small ?? "").asUrl, placeholder:UIImage(named: "placeHolder"))
         imageNameLabel.text = image.user?.firstName ?? ""
         self.imgName = image.user?.firstName
+        self.id = image.id
     }
-
-   
 }
