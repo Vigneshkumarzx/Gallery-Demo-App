@@ -400,14 +400,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kZr-rq-TEe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Offline" id="QMS-cM-2kh">
-                        <imageReference key="image" image="network.badge.shield.half.filled" catalog="system" renderingMode="hierarchical-single">
+                        <imageReference key="image" image="web" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color systemColor="labelColor"/>
                                 <color systemColor="secondaryLabelColor"/>
                                 <color systemColor="tertiaryLabelColor"/>
                             </hierarchicalColors>
                         </imageReference>
-                        <imageReference key="landscapeImage" image="network.badge.shield.half.filled" catalog="system" renderingMode="hierarchical-single">
+                        <imageReference key="landscapeImage" image="web" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color systemColor="labelColor"/>
                                 <color systemColor="secondaryLabelColor"/>
@@ -434,7 +434,7 @@
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="network.badge.shield.half.filled" catalog="system" width="128" height="118"/>
+        <image name="web" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
