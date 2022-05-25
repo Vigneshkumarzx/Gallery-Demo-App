@@ -31,11 +31,7 @@ class ImageDetailViewController: UIViewController {
         imageNameLabel.text = details.user?.name
         imageDescription.text = details.user?.bio
         userIdLabel.text = details.user?.id
-        if (details.user?.bio != nil){
-            imageDetails.isHidden = false
-        } else{
-            imageDetails.isHidden = true
-        }
+        imageDetails.isHidden = details.user?.bio == nil
         if(details.user?.name != nil){
             imageName.isHidden = false
         }else if(details.user?.id != nil) {

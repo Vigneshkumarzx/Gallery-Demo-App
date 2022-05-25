@@ -14,7 +14,6 @@ class ImageViewModel {
         ImageService.shared.getImageMore(pages: pages ) { [weak self] (result) in
             switch result {
             case .success(let model) :
-                self?.photosArray.removeAll()
                 self?.photosArray.append(contentsOf: model)
                 completion(nil)
             case.failure(let error) :
